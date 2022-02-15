@@ -1,0 +1,30 @@
+:host {
+  width: 50%;
+}
+
+.example-form-field {
+  width: 200px;
+}
+
+form {
+  padding: 1% 0;
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-wrapper {
+
+}
+
+input {
+  border: 0;
+  margin-bottom: .3rem;
+  font-size: 4rem;
+
+}
+.form-control {
+  // padding: em;
+  background: none;
+  border-bottom: 3px solid rebeccapurple;
+}

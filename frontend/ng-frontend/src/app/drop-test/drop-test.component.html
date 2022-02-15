@@ -1,0 +1,29 @@
+<div class="multi-range-slider">
+  <input
+    #min
+    (input)="inputChangeMin($event)"
+    type="range"
+    name=""
+    id="input-left"
+    min="0"
+    max="99"
+    value="25"
+  />
+  <input
+    #max
+    (input)="inputChangeMax($event)"
+    type="range"
+    name=""
+    id="input-right"
+    min="1"
+    max="100"
+    value="75"
+  />
+
+  <div class="slider">
+    <div class="track"></div>
+    <div #range class="range"></div>
+    <div #minSlider class="thumb left"></div>
+    <div #maxSlider class="thumb right"></div>
+  </div>
+</div>

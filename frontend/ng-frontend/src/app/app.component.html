@@ -1,0 +1,60 @@
+<app-nav></app-nav>
+<app-search-practice></app-search-practice>
+<h1 routerLink="/jobs">Jobs</h1>
+
+<!-- <app-drop-test></app-drop-test>
+<app-checkboxes></app-checkboxes> -->
+<!-- <app-dual-head-range
+  [(minimum)]="minInputted"
+  [(maximum)]="maxInputted"
+></app-dual-head-range> -->
+<!-- <app-dual-head-range [(item)]="minInputted"></app-dual-head-range> -->
+<!-- <app-drop-down [(item)]="maxInputted"></app-drop-down> -->
+<!-- <app-search-container></app-search-container> -->
+
+<!-- <app-search-panel-options></app-search-panel-options> -->
+
+<!-- <app-drop-down></app-drop-down> -->
+<!-- <form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Search</mat-label>
+    <input
+      type="text"
+      placeholder="Pick one"
+      aria-label="Search"
+      matInput
+      [formControl]="myControl"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        [value]="option.job_title"
+      >
+        {{ option.job_title }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field> -->
+
+<!-- <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Search City</mat-label>
+    <input
+      type="text"
+      placeholder="Pick one"
+      aria-label="Search"
+      matInput
+      [formControl]="cityControl"
+      [matAutocomplete]="city"
+    />
+    <mat-autocomplete autoActiveFirstOption #city="matAutocomplete">
+      <mat-option
+        *ngFor="let boption of cityFilteredOptions | async"
+        [value]="boption.city"
+      >
+        {{ boption.city }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field> -->
+<!-- </form> -->
+
+<router-outlet></router-outlet>

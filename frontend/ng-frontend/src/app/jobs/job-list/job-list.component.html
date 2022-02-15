@@ -1,0 +1,14 @@
+<ul *ngIf="list | async as iterableArr">
+  <app-job-item
+    *ngFor="let data of iterableArr; let i = index"
+    [data]="data"
+    [index]="i"
+  >
+  </app-job-item>
+</ul>
+
+<!-- <div class="data" *ngIf="jobData | async as user">
+  <ul *ngFor="let item of user">
+    <li>{{ item.job_title }}</li>
+  </ul>
+</div> -->

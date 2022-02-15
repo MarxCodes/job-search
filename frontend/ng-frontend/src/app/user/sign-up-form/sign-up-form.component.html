@@ -1,0 +1,50 @@
+<div class="container">
+  <form novalidate (ngSubmit)="save()" [formGroup]="signInForm">
+    <div class="form-group">
+      <div class="input-container">
+        <input
+          type="text"
+          class="form-control"
+          id="emailID"
+          placeholder="Email"
+          formControlName="email"
+          [ngClass]="{
+            'is-invalid':
+              (signInForm.get('email')?.touched ||
+                signInForm.get('email')?.dirty) &&
+              !signInForm.get('email')?.valid
+          }"
+        />
+      </div>
+      <span class="invalid-feedback">
+        <span *ngIf="signInForm.get('email')?.errors?.required">
+          Enter Email
+        </span>
+        <span *ngIf="signInForm.get('email')?.errors?.email"> Not Emaily </span>
+      </span>
+
+      <div class="input-container">
+        <input
+          class="form-control"
+          id="password"
+          type="text"
+          placeholder="Password"
+          formControlName="password"
+        />
+      </div>
+      <!-- <span class="invalid-feedback">
+              {{ emailMessage }}
+            </span> -->
+
+      <!-- <div class="submit-container"> -->
+      <button
+        type="submit"
+        [title]="signInForm.valid ? 'save' : 'disabled'"
+        [disabled]="!signInForm.valid"
+      >
+        Sign In
+      </button>
+      <!-- </div> -->
+    </div>
+  </form>
+</div>

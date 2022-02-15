@@ -1,0 +1,23 @@
+:host{
+}
+
+nav {
+  background-color: var(--header-colour);
+  display: flex;
+  padding: 0 4%;
+  h1{
+    font-family: var(--header-font);
+    color: white;
+    // margin: 0;
+    font-size: 1.5em;
+  }
+  span {
+    flex: 1 1 auto;
+  }
+
+  ul {
+    list-style: none;
+    display: inline-block;
+  }
+}
+

@@ -1,0 +1,8 @@
+<ul *ngIf="list | async as iterableArr">
+  <app-user-item
+    *ngFor="let data of iterableArr; let i = index"
+    [data]="data"
+    [index]="i"
+  >
+  </app-user-item>
+</ul>

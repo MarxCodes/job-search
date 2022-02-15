@@ -1,0 +1,63 @@
+<!-- <div class="container" [@toggleOpen]="optionsOpen"> -->
+<div class="container">
+  <div class="salary-mix anim-el">
+    <h2>Salary Range</h2>
+    <app-dual-head-range></app-dual-head-range>
+  </div>
+  <div class="date-posted anim-el">
+    <h2>Date Posted</h2>
+    <app-checkboxes></app-checkboxes>
+  </div>
+
+  <div class="distance-radius anim-el">
+    <h2>Distance</h2>
+    <app-text-input [(item)]="dinputtedVal"></app-text-input>
+    <app-single-range [(item)]="dinputtedVal"></app-single-range>
+  </div>
+</div>
+
+<!-- <input
+      type="range"
+      id="volume"
+      name="volume"
+      min="0"
+      max="10"
+      value="5"
+      list="tickmarks"
+    />
+    <datalist id="tickmarks">
+      <option value="0"></option>
+      <option value="1"></option>
+      <option value="2"></option>
+      <option value="3"></option>
+      <option value="4"></option>
+      <option value="5"></option>
+      <option value="6"></option>
+      <option value="7"></option>
+      <option value="8"></option>
+      <option value="9"></option>
+      <option value="10"></option>
+    </datalist> -->
+
+<!-- <input type="range" list="tickmarks" />
+    <datalist id="tickmarks">
+      <option value="0"></option>
+      <option value="10"></option>
+      <option value="20"></option>
+      <option value="30"></option>
+      <option value="40"></option>
+      <option value="50"></option>
+      <option value="60"></option>
+      <option value="70"></option>
+      <option value="80"></option>
+      <option value="90"></option>
+      <option value="100"></option>
+    </datalist>
+  </div> -->
+
+<!-- <div class="range-slider">
+    <input type="range" min="0" max="180" step="1" />
+    <input type="number" min="0" max="180" step="1" />
+    <input type="range" min="0" max="180" step="1" />
+    <input type="number" min="0" max="180" step="1" />
+  </div> -->

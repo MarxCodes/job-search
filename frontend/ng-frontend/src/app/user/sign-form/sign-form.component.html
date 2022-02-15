@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="form-container" *ngIf="register">
+    <h1>Register</h1>
+    <app-register-form></app-register-form>
+    <h2>
+      If you've already registerd <a (click)="changeTemplate()">Sign In</a>
+    </h2>
+  </div>
+  <div class="form-container" *ngIf="!register">
+    <h1>Sign In</h1>
+    <app-sign-up-form></app-sign-up-form>
+  </div>
+</div>

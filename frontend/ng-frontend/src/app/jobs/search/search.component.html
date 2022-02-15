@@ -1,0 +1,45 @@
+<!-- <form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Search</mat-label>
+    <input
+      type="text"
+      placeholder="Pick one"
+      aria-label="Search"
+      matInput
+      [formControl]="myControl"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        [value]="option"
+      >
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form> -->
+
+<!-- <app-search-practice></app-search-practice> -->
+
+<div class="container">
+  <div class="distance-radius">
+    <input
+      type="range"
+      id="volume"
+      name="volume"
+      min="0"
+      max="10"
+      list="tickmarks"
+    />
+    <datalist id="tickmarks">
+      <option label="0%" value="0"></option>
+      <option value="20"></option>
+      <option value="40"></option>
+      <option value="60"></option>
+      <option value="80"></option>
+      <option value="100"></option>
+    </datalist>
+    <label>Radius</label>
+  </div>
+</div>

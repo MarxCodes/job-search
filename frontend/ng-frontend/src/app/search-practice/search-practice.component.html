@@ -1,0 +1,54 @@
+<!-- <mat-form-field class="example-form-field" appearance="fill"> </mat-form-field> -->
+<nav></nav>
+
+<form
+  [@panelState]="isOpen ? 'open' : 'close'"
+  novalidate
+  (ngSubmit)="save()"
+  [formGroup]="searchForm"
+>
+  <input
+    class="form-control effect-1"
+    id="jobTitle"
+    type="text"
+    placeholder="Job Title"
+    formControlName="jobTitle"
+    [@reducer]="isOpen ? 'open' : 'close'"
+  />
+  <span class="focus-border"></span>
+  <input
+    class="form-control"
+    id="location"
+    type="text"
+    placeholder="Location"
+    formControlName="location"
+    [@reducer]="isOpen ? 'open' : 'close'"
+  />
+  <mat-icon
+    aria-hidden="false"
+    aria-label="Example home icon"
+    (click)="toggle()"
+    >search</mat-icon
+  >
+  <mat-icon
+    aria-hidden="false"
+    aria-label="Example home icon"
+    (click)="openOptions()"
+    >expand_more</mat-icon
+  >
+
+  <div class="input-wrapper">
+    <label for="">
+      <span></span>
+    </label>
+  </div>
+  <div class="input-wrapper">
+    <!-- <span class="invalid-feedback">
+      {{ emailMessage }}
+    </span> -->
+  </div>
+</form>
+<app-search-panel-options
+  *ngIf="toggleOpen"
+  @toggleOpen
+></app-search-panel-options>

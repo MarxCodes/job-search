@@ -1,0 +1,49 @@
+<div class="container">
+  <form [formGroup]="form">
+    <label for="today">
+      <input
+        type="radio"
+        name="checks"
+        id="today"
+        formControlName="checks"
+        value="today"
+      />
+      <span>Today</span>
+
+      <div class="check"></div>
+    </label>
+    <label for="pastThree">
+      <input
+        type="radio"
+        name="checks"
+        id="pastThree"
+        formControlName="checks"
+        value="pastThree"
+      />
+      <div class="check"></div>
+      <span>Past Three</span>
+    </label>
+    <label for="pastWeek">
+      <input
+        type="radio"
+        name="checks"
+        id="pastWeek"
+        formControlName="checks"
+        value="pastWeek"
+      />
+      <div class="check"></div>
+      <span>past Week</span>
+    </label>
+    <label for="pastMonth">
+      <input
+        type="radio"
+        name="checks"
+        id="pastMonth"
+        formControlName="checks"
+        value="pastMonth"
+      />
+      <div class="check"></div>
+      <span>past Month</span>
+    </label>
+  </form>
+</div>

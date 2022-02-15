@@ -1,0 +1,55 @@
+:host {
+  width: 50%;
+  // paddn
+}
+
+.example-form-field {
+  width: 200px;
+}
+
+form {
+  padding: 1% 10%;
+  background-color: var(--secondary-colour);
+  display: flex;
+  flex-direction: column;
+}
+
+.input-wrapper {
+
+}
+
+input {
+  border: 0;
+  margin-bottom: .3rem;
+  font-size: 4rem;
+
+}
+.form-control {
+  // padding: em;
+  background: none;
+  // border-bottom: 3px solid rebeccapurple;
+  margin-right: 2em;
+  box-sizing: border-box;
+}
+.form-control~.focus-border {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 2px;
+	background-color: #3399FF;
+	transition: 0.4s;
+}
+
+.form-control:focus~.focus-border {
+	width: 100%;
+	transition: 0.4s;
+	left: 0;
+}
+
+@media(min-width: 40em) {
+  form {
+    flex-direction: row;
+
+  }
+}
