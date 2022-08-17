@@ -25,6 +25,7 @@ interface CitySearch {
   providedIn: 'root'
 })
 export class JobService {
+  jobData! : Observable<Job[]>;
   url = 'http://localhost:3000/api/v1/'
   data$ = Observable;
   body = {
@@ -45,18 +46,32 @@ export class JobService {
   constructor(private http: HttpClient) {
 
    }
+
+   getJobData(jd: {}):Observable <Job[]> {
+     return this.jobData = this.http.post<Job[]>('http://localhost:3000/api/v1/jobs', jd).pipe(
+      shareReplay(1),
+    );
+   }
+
+  findJob(id: any) : any{
+    this.jobData.pipe(
+      map(al => {
+        al.find(elem => { id === elem._id})
+      })
+    )
+  }
+
    getJob(od: any) {
-
-     return this.job$.pipe(
-      //  map(hh => hh.filter(g => od === g._id)),
+     return this.jobData.pipe(
+       tap(gg => console.log('from inside get job', gg , typeof gg)),
       map(hh => hh.find(g => od === g._id)),
-
-      //  map(o => o.filter(g => od === g._id)),
-       tap(gg => console.log('from inside get job', gg)),
-      //  tap(console.log),
-      //  find(i => od === i.id)
        )    //  )
    }
+
+  //  getJobNoIterating(id: number):Observable<Job> {
+  //     return this.jobData.pipe()
+  //  }
+
    sliceData(index: string){
      let bindex = +index;
      this.job$.pipe(
@@ -65,8 +80,8 @@ export class JobService {
      )
    }
 
-   getJobs(): Observable <Job[]> {
-     return this.http.post<Job[]>('http://localhost:3000/api/v1/jobs', this.body)
+   getJobs(jobData: {}){
+     return this.http.post('http://localhost:3000/api/v1/jobs', jobData)
    }
 
    fetched(items: JobSearch):Observable<JobSearch[]> {

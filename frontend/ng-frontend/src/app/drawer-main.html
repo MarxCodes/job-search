@@ -1,0 +1,10 @@
+<div class="mat-drawer-backdrop" *ngIf="hasBackdrop"></div>
+<!-- (click)="_onBackdropClicked()"
+  [class.mat-drawer-shown]="_isShowingBackdrop()" -->
+
+<ng-content select="nav-drawer"></ng-content>
+
+<ng-content select="nav-main-content"> </ng-content>
+<nav-main-content *ngIf="!_content">
+  <ng-content></ng-content>
+</nav-main-content>

@@ -1,0 +1,90 @@
+.saved_job_table {
+  background-color: #ffffff;
+  padding: 2em;
+
+  table {
+    border-collapse: collapse;
+    th {
+      color: #636E72;
+
+
+    }
+
+
+
+
+    tr {
+
+      font-family: var(--text-font);
+      th {
+        // display: flex;
+
+      }
+      th,td {
+        // cellpadding: .5em;
+        padding: .5em;
+      }
+      td {
+        span {
+          padding: 0.2em 0.6em;
+          border-radius: 1em;
+
+        }
+
+      }
+
+      .expiring {
+        background-color: #B3FAE6;
+        color:#00B894;
+      }
+
+      .expired {
+        background-color: #FAB1A0;
+        color: #D63031;
+      }
+
+      .declined{
+        background-color: #B2BEC3;
+        color: #2D3436;
+      }
+
+      .updated {
+        background-color: #FFEAA7;
+        color: #E17055;
+      }
+
+        }
+  }
+}
+
+// table {
+//   width: 100%;
+//   border-collapse: collapse;
+//   box-shadow: var(--box-shadow);
+//   td, th {
+//     border: 1px solid #dddddd;
+//     text-align: left;
+//     padding: 8px;
+//     font-family: var(--text-font);
+//     border: none;
+//   }
+
+//   th {
+//     font-size: 2em;
+//     color: #2f3542;
+//   }
+
+//   td {
+//     font-size: 1.3em;
+//     color: #57606f;
+
+
+//   }
+
+//   tr:nth-child(even) {
+//     background-color: #dfe4ea;
+//   }
+//   tr:nth-child(odd) {
+//     background-color: #fff;
+//   }
+// }

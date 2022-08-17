@@ -1,0 +1,92 @@
+<div class="filter-container">
+  <div class="filtered-options">
+    <div class="checked-filters" *ngFor="let item of list">
+      <h2>{{ item }}</h2>
+      <mat-icon aria-hidden="false" aria-label="Example home icon"
+        >clear</mat-icon
+      >
+    </div>
+    <span></span>
+    <button class="apply_filters">Apply Filters</button>
+  </div>
+  <div class="filters">
+    <table>
+      <tr>
+        <th>
+          <div class="label" #fable>
+            <app-pop-up-button
+              [appPopUp]="a"
+              [label]="fable"
+              [name]="'Distance'"
+            ></app-pop-up-button>
+          </div>
+        </th>
+        <th>
+          <div class="label" #cable>
+            <app-pop-up-button
+              [appPopUp]="b"
+              [label]="cable"
+              [name]="'Salary Range'"
+            ></app-pop-up-button>
+          </div>
+        </th>
+        <th>
+          <div class="label" #babel>
+            <app-pop-up-button
+              [appPopUp]="c"
+              [label]="babel"
+              [name]="'Type'"
+            ></app-pop-up-button>
+          </div>
+        </th>
+        <th>
+          <div class="label" #mable>
+            <app-pop-up-button
+              [appPopUp]="d"
+              [label]="mable"
+              [name]="'Perks'"
+            ></app-pop-up-button>
+          </div>
+        </th>
+        <th>
+          <div class="label" #cabel>
+            <app-pop-up-button
+              [appPopUp]="e"
+              [label]="cabel"
+              [name]="'Added'"
+            ></app-pop-up-button>
+          </div>
+        </th>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<ng-template #a>
+  <app-pop-up>
+    <app-single-range-container></app-single-range-container>
+    <!--  -->
+  </app-pop-up>
+</ng-template>
+<ng-template #b>
+  <app-pop-up>
+    <app-two-head-range [name]="'Salary Range'">
+      <!-- <button (click)="applyFilters()">Apply</button> -->
+    </app-two-head-range>
+  </app-pop-up>
+</ng-template>
+<ng-template #c>
+  <app-pop-up>
+    <app-two-head-range [name]="'Distance'"> </app-two-head-range>
+  </app-pop-up>
+</ng-template>
+<ng-template #d>
+  <app-pop-up>
+    <app-checkbox-reuse></app-checkbox-reuse>
+  </app-pop-up>
+</ng-template>
+<ng-template #e>
+  <app-pop-up>
+    <app-checkbox-reuse></app-checkbox-reuse>
+  </app-pop-up>
+</ng-template>

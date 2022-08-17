@@ -1,0 +1,64 @@
+<div class="dual-slider-container">
+  <div class="multi-range-slider">
+    <input
+      #min
+      (input)="inputChangeMin($event)"
+      type="range"
+      name=""
+      id="input-left"
+      min="0"
+      max="99"
+      value="25"
+    />
+    <input
+      #max
+      (input)="inputChangeMax($event)"
+      type="range"
+      name=""
+      id="input-right"
+      min="1"
+      max="100"
+      value="75"
+    />
+
+    <!-- (mousedown)="bounce($event)" -->
+    <!-- [(ngModel)]="maximum" -->
+
+    <div class="slider">
+      <div class="track"></div>
+      <div #range class="range"></div>
+      <div #minSlider class="thumb left"></div>
+
+      <div #maxSlider (mouseup)="bounced($event)" class="thumb right"></div>
+    </div>
+  </div>
+
+  <div class="text-output-container">
+    <div class="text_container">
+      <span>$</span>
+      <input
+        type="number"
+        name=""
+        id=""
+        #minText
+        min="0"
+        max="99"
+        (input)="changeTextMin($event)"
+      />
+    </div>
+    <div class="text_container">
+      <span>$$</span>
+      <input
+        type="number"
+        name=""
+        id=""
+        #maxText
+        min="1"
+        max="100"
+        (input)="changeTextMax($event)"
+      />
+    </div>
+  </div>
+  <!-- <ng-content></ng-content> -->
+  <button (click)="applyFilters()">Apply</button>
+</div>

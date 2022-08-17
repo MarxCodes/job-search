@@ -1,0 +1,20 @@
+<div
+  class="job-item-container"
+  (click)="routing()"
+  [routerLink]="[data._id]"
+  routerLinkActive="router-link-active"
+>
+  <h1>{{ data.job_title }}</h1>
+  <mat-icon
+    *ngIf="!setStar"
+    (click)="saveToFavourites(data._id)"
+    aria-hidden="false"
+    aria-label="Example home icon"
+    >star_outline</mat-icon
+  >
+  <mat-icon *ngIf="setStar" aria-hidden="false" aria-label="Example home icon"
+    >star</mat-icon
+  >
+  <h2>{{ data.city }}</h2>
+  <!-- <h3>{{ data._id }}<//h3> -->
+</div>

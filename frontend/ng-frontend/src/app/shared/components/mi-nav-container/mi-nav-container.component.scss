@@ -1,0 +1,457 @@
+@use '@angular/cdk';
+
+// @use '../core/style/variables';
+// @use '../core/style/layout-common';
+
+$drawer-content-z-index: 1;
+$drawer-side-drawer-z-index: 2;
+$drawer-backdrop-z-index: 3;
+$drawer-over-drawer-z-index: 4;
+$my-scale: var(--bw);
+
+@mixin drawer-stacking-context($z-index: 1) {
+  position: relative;
+
+  // Use a z-index to create a new stacking context. (We can't use transform because it breaks fixed
+  // positioning inside of the transformed element).
+  z-index: $z-index;
+}
+
+.mat-drawer-backdrop.mat-drawer-shown {
+  opacity: 0.6;
+  background-color: black;
+}
+
+@mixin fill {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  // padding: 0 6%;
+  margin: auto;
+  transform-origin: top left;
+  transition-property: transform;
+  transition-delay: .5s;
+  transition-duration: .5s;
+  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  position: relative;
+  display: grid;
+  align-items: center;
+
+  >* {
+    grid-area: 1/1;
+  }
+
+  & .englarging {
+    transition: none;
+    transform: translateX(calc(-1px * var(--bx)));
+  }
+}
+
+.content {
+  padding: 0 5px;
+
+  ul {
+    height: 100vh;
+
+    li {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+
+}
+
+.content-large {
+  transition-property: opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+
+  .active_nav {
+    a {
+      font-weight: 900;
+      color: #2c3e50;
+    }
+
+    svg {
+
+      path {
+        stroke-width: 5px;
+        stroke: #2c3e50;
+      }
+
+    }
+  }
+}
+
+.content-small {
+  width: 100px;
+
+  // .active_nav {
+  //   background-color: red;
+  // }
+
+  .active_nav {
+    background-color: #3742FA;
+
+    svg {
+      fill: #ffffff;
+    }
+  }
+
+  ul li {
+    justify-content: center;
+    border: 3px solid #3742FA;
+    border-radius: 15px;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+
+    svg {
+      fill: #3742FA;
+    }
+  }
+}
+
+.container[data-state="large"] .content-small {
+  opacity: 0;
+  transition-delay: .1s;
+
+}
+
+.container[data-state="small"] .content-large {
+  opacity: 0;
+  transition-delay: .1s;
+}
+
+.container[data-state="large"] .content-large,
+.container[data-state="small"] .content-small {
+  position: relative;
+  transition-delay: 1s;
+  opacity: 1;
+
+
+}
+
+.container[data-state="small"] .content-small {
+
+  .active_nav #svg-init {
+
+    path:nth-child(1) {
+      // transition-delay: 2s;
+
+      stroke-dasharray: 548;
+      stroke-dashoffset: 548;
+      animation: line-animation 5s ease 2s forwards;
+    }
+
+  }
+
+  @keyframes line-animation {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+
+.active_nav #svg-init {
+
+  path:nth-child(1) {
+    stroke-dasharray: 548;
+    stroke-dashoffset: 548;
+    animation: line-animation 3s ease forwards;
+  }
+
+}
+
+// @keyframes line-animation {
+//   to {
+//     stroke-dashoffset: 0;
+//   }
+// }
+
+// .container[data-state="large"] .active_nav #svg-init {
+
+//   path:nth-child(1) {
+//     transition-delay: 4s;
+
+//     stroke-dasharray: 548;
+//     stroke-dashoffset: 548;
+//     animation: line-animation 3s ease forwards;
+//   }
+
+
+//   @keyframes line-animation {
+//     to {
+//       stroke-dashoffset: 0;
+//     }
+//   }
+// }
+
+.bg {
+  transform-origin: top left;
+  transition: inherit;
+  transition-property: transform;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  // border: 1px solid orangered;
+  // border-radius: var(--radius);
+  pointer-events: none;
+
+  .enlarging>& {
+    transform: scaleX(calc(1 / var(--bw)));
+    // border-radius: calc((var(--bw)) * var(--radius)) /
+    // calc((var(--bh)) * var(--radius));
+  }
+}
+
+
+.app-nav-container {
+  @include drawer-stacking-context();
+  // We need a stacking context here so that the backdrop and drawers are clipped to the
+  // MatDrawerContainer. This creates a new z-index stack so we use low numbered z-indices.
+  // We create another stacking context in the '.mat-drawer-content' and in each drawer so that
+  // the application content does not get messed up with our own CSS.
+  // @include drawer-stacking-context();
+
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+
+  // Need this to take up space in the layout.
+  // display: ;
+  // border: 2px solid green;
+  display: block;
+  // Hide the drawers when they're closed.
+  overflow: hidden;
+  height: 100vh;
+
+  // TODO(hansl): Update this with a more robust solution.
+  &[fullscreen] {
+    @include fill();
+
+    &.mat-drawer-container-has-open {
+      overflow: hidden;
+    }
+  }
+
+  // When the consumer explicitly enabled the backdrop,
+  // we have to pull the side drawers above it.
+  &.mat-drawer-container-explicit-backdrop .mat-drawer-side {
+    z-index: $drawer-content-z-index;
+
+
+  }
+
+  // Note that the `NoopAnimationsModule` is being handled inside of the component code.
+  &.ng-animate-disabled,
+  .ng-animate-disabled & {
+
+    .mat-drawer-backdrop,
+    .mat-drawer-content {
+      transition: none;
+    }
+  }
+}
+
+.mat-drawer-backdrop {
+  @include fill();
+
+  display: block;
+
+  // Because of the new stacking context, the z-index stack is new and we can use our own
+  // numbers.
+  z-index: $drawer-backdrop-z-index;
+
+  // We use 'visibility: hidden | visible' because 'display: none' will not animate any
+  // transitions, while visibility will interpolate transitions properly.
+  // see https://developer.mozilla.org/en-US/docs/Web/CSS/visibility, the Interpolation
+  // section.
+  visibility: hidden;
+
+  &.mat-drawer-shown {
+    visibility: visible;
+  }
+
+  .mat-drawer-transition & {
+    transition: {
+      duration: .4s;
+      timing-function: ease-in;
+      property: background-color, visibility;
+    }
+  }
+
+  opacity: .5;
+
+  // @include cdk.high-contrast(active, off) {
+  //   opacity: 0.5;
+  // }
+}
+
+.app-mi-nav-content {
+  @include drawer-stacking-context($drawer-content-z-index);
+
+  display: block;
+  height: 100%;
+  overflow: auto;
+  background-color: #E5E5E5;
+  // transform: translate3d(0%, 20, 0);
+
+  .mat-drawer-transition & {
+    transition: {
+      delay: 1s;
+      duration: .4s;
+      timing-function: ease-in;
+      property: transform, margin-left, margin-right;
+    }
+  }
+}
+
+.hide-el {
+
+  // border: 1px solid black;
+  a {
+    display: none;
+  }
+}
+
+.app-mi-nav-drawer {
+
+
+  ul {
+    li {
+      list-style: none;
+    }
+
+    // border: 1px solid green;
+    // .hide-el li {
+    //   opacity: 0;
+    // }
+  }
+
+
+  // $high-contrast-border: solid 1px currentColor;
+
+  @include drawer-stacking-context($drawer-over-drawer-z-index);
+
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  outline: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  // TODO(kara): revisit scrolling behavior for drawers
+  // transform: translate3d(-0%, 0S, 0);
+
+  & .mat-drawer-opened {
+    width: 300px;
+  }
+
+  &,
+  [dir='rtl'] &.mat-drawer-end {
+    // @include cdk.high-contrast(active, off) {
+    //   border-right: $high-contrast-border;
+    // }
+  }
+
+  [dir='rtl'] &,
+  &.mat-drawer-end {
+    // @include cdk.high-contrast(active, off) {
+    //   border-left: $high-contrast-border;
+    //   border-right: none;
+    // }
+  }
+
+  &.mat-drawer-side {
+    z-index: $drawer-content-z-index;
+
+  }
+
+  &.nav-drawer {
+    // z-index: $drawer-side-drawer-z-index;
+
+  }
+
+  &.mat-drawer-over {
+    z-index: $drawer-backdrop-z-index;
+
+  }
+
+
+  &.mat-drawer-end {
+    right: 0;
+    opacity: 0;
+    // display: none;
+    // visibility: hidden;
+    // transform: translateX(calc(1px * 300));
+    transform: scaleX(0) translateX(20%);
+
+    // transform: translate3d(100%, 0, 0);
+    &.mat-drawer-opened {
+      // visibility: visible;
+      display: block;
+      opacity: 1;
+      // transform: scaleX(calc(1 / var(--bw)));
+      // transform: translateX(calc(-1px * var(--bx)));
+      transition: none;
+      transform: scaleX(1) translateX(0);
+      transition-property: transform;
+      transition-delay: .5s;
+      transition-duration: .5s;
+      transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1); // transform: translate3d(100%, 0, 0);
+      transform-origin: top right;
+    }
+  }
+
+
+  [dir='rtl'] & {
+    transform: translate3d(100%, 0, 0);
+
+    &.mat-drawer-end {
+      left: 0;
+      right: auto;
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+
+  // Usually the `visibility: hidden` added by the animation is enough to prevent focus from
+  // entering the hidden drawer content, but children with their own `visibility` can override it.
+  // This is a fallback that completely hides the content when the element becomes hidden.
+  // Note that we can't do this in the animation definition, because the style gets recomputed too
+  // late, breaking the animation because Angular didn't have time to figure out the target
+  // transform. This can also be achieved with JS, but it has issues when starting an
+  // animation before the previous one has finished.
+  &[style*='visibility: hidden'] {
+    display: none;
+  }
+}
+
+// Note that this div isn't strictly necessary on all browsers, however we need it in
+// order to avoid a layout issue in Chrome. The issue is that in RTL mode the browser doesn't
+// account for the sidenav's scrollbar while positioning, which ends up pushing it partially
+// out of the screen. We work around the issue by having the scrollbar be on this inner container.
+.mat-drawer-inner-container {
+  // border: 1px solid red;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mat-sidenav-fixed {
+  position: fixed;
+}

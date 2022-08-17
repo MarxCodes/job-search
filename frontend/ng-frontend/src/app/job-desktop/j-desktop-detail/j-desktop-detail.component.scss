@@ -1,0 +1,52 @@
+.detail-container {
+  h1,h2,h3,p {
+    font-family: var(--text-font);
+  }
+
+  border-radius: 2em;
+
+  // padding: 0 5%;
+  // border-top-left-radius:2em ;
+  background-color: #F1F2F6;
+  .job-detail {
+    background-color: white;
+    padding: 1em;
+  }
+  .button-container {
+    float: right;
+    clear: left;
+
+    button {
+      border-radius: 1em;
+      background: white;
+      font-family: var(--text-font);
+      color: grey;
+      border: 1px solid grey;
+      padding: 1em 1.3em;
+    }
+  }
+  .title {
+
+    h1 {
+      // font-family: var(--text-font);
+    margin: 0;
+    font-weight: 400;
+    color: #2D3436;
+    }
+
+    h2 {
+      color: #636E72;
+      font-weight: 400;
+    }
+  }
+  .details {
+    display: inline-block;
+    width: 90%;
+    h2 {
+      float: left;
+    }
+    h3 {
+      float: right;
+    }
+  }
+}

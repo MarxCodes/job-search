@@ -1,11 +1,16 @@
-<ul *ngIf="list | async as iterableArr">
+<div *ngIf="myJobData$ | async as iterableArr">
+  <!-- <ul *ngFor="let data of iterableArr">
+    {{
+      data | json
+    }}
+  </ul> -->
   <app-job-item
     *ngFor="let data of iterableArr; let i = index"
     [data]="data"
     [index]="i"
   >
   </app-job-item>
-</ul>
+</div>
 
 <!-- <div class="data" *ngIf="jobData | async as user">
   <ul *ngFor="let item of user">

@@ -1,0 +1,43 @@
+<div class="container">
+  <app-filter></app-filter>
+  <!-- <h1>Added Jobs</h1> -->
+</div>
+<nav>
+  <h1 [routerLink]="['/user/upload/create']">Create New Job Advert</h1>
+</nav>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Location</th>
+    <th>Salary</th>
+    <th>Added</th>
+    <th>Actions</th>
+  </tr>
+  <tr
+    *ngFor="let item of jobsData"
+    [routerLink]="['/user/upload', item.id, 'detail']"
+  >
+    <td>{{ item.name }}</td>
+    <td>{{ item.location }}</td>
+    <td>{{ item.salary }}</td>
+    <td>{{ item.added }}</td>
+    <td class="actions">
+      <button class="edit" [routerLink]="['/user/upload', item.id, 'edit']">
+        edit
+        <mat-icon aria-hidden="false" aria-label="Example home icon"
+          >edit</mat-icon
+        >
+      </button>
+      <button class="delete">
+        delete
+        <mat-icon aria-hidden="false" aria-label="Example home icon"
+          >delete</mat-icon
+        >
+      </button>
+      <!-- <p>edit</p>
+      <span></span>
+      <p>delete</p> -->
+    </td>
+  </tr>
+</table>

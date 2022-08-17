@@ -34,8 +34,8 @@ import { MatInputModule } from '@angular/material/input';
     ]),
     MatIconModule,
     MatAutocompleteModule,
+    MatIconModule,
     MatFormFieldModule,
-    MatIconModule
   ],
   providers: [JobService]
 })

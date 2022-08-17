@@ -1,0 +1,387 @@
+.container {
+  background-color: #F1F2F6;
+  border-top-left-radius: 2em;
+  // display: grid;
+  // grid: 1fr/1fr;
+  // gap: 1.2em;
+  padding: .5em;
+
+  h1 {
+    font-family: var(--header-font);
+  }
+
+  &>* {
+    // box-shadow: var(--box-shadow);
+    // background-color: white;
+    // border-radius: 25px;
+    // padding: 5% 10%;
+  }
+
+  .latest-jobs {
+    display: flex;
+    background-color: #F2F7FA;
+    float: left;
+    flex-wrap: wrap;
+
+    .latest-card {
+      padding: 15px;
+      border-radius: 10px;
+      color: #303952;
+      background-color: #ffffff;
+      margin: 10px;
+      max-width: 100%;
+      width: 200px;
+
+      h3 {
+        font-family: var(--number-font);
+        font-size: 3em;
+        margin: 0;
+      }
+
+      h4,
+      h5 {
+        font-family: var(--text-font);
+      }
+
+      &:first-child {
+        background-color: #8295F2;
+        color: #ffffff;
+
+        .progress-bar {
+          background-color: #8FA2FF;
+        }
+      }
+
+      &:last-child {
+        background-color: #EA8685;
+
+        .progress-bar {
+          background-color: #E66767;
+        }
+      }
+
+      .progress-bar {
+        width: 80%;
+        margin: auto;
+        height: 10px;
+        background-color: #D2FAFF;
+        border-radius: 1em;
+
+        &::after {
+          content: " ";
+          background-color: #63CDDA;
+          width: 6em;
+          height: 10px;
+          position: absolute;
+          border-radius: 1em;
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .message-wrapper {
+    float: left;
+
+    .message-container {
+      background-color: #303952;
+      color: #ffffff;
+
+      h3 {
+        font-family: var(--number-font);
+      }
+
+      h4 {
+        font-family: var(--text-font);
+      }
+
+      img {
+        height: 100px;
+        width: auto;
+      }
+    }
+  }
+
+
+  .saved_job_table {
+    background-color: #ffffff;
+    padding: 2em;
+
+    table {
+      border-collapse: collapse;
+
+      th {
+        color: #636E72;
+
+
+      }
+
+
+
+
+      tr {
+
+        font-family: var(--text-font);
+
+        th {
+          // display: flex;
+
+        }
+
+        th,
+        td {
+          // cellpadding: .5em;
+          padding: .5em;
+        }
+
+        td {
+          span {
+            padding: 0.2em 0.6em;
+            border-radius: 1em;
+
+          }
+
+        }
+
+        .expiring {
+          background-color: #B3FAE6;
+          color: #00B894;
+        }
+
+        .expired {
+          background-color: #FAB1A0;
+          color: #D63031;
+        }
+
+        .declined {
+          background-color: #B2BEC3;
+          color: #2D3436;
+        }
+
+        .updated {
+          background-color: #FFEAA7;
+          color: #E17055;
+        }
+
+      }
+    }
+  }
+
+  .saved_job_container {
+    display: flex;
+    flex-direction: column;
+
+    .saved_jobs {
+      display: inline;
+      text-align: center;
+      padding: 5px 10%;
+
+      &>* {
+        margin: 0;
+      }
+
+      h1,
+      h2 {
+
+        // font-family: var(--text-font);
+      }
+
+      h1 {
+        font-size: 8em;
+        color: #2F3542;
+        // float: left;
+      }
+
+      h2 {
+        font-size: 2em;
+        color: #2F3542;
+      }
+    }
+
+    .cards-container {
+      display: flex;
+      flex-direction: column;
+
+    }
+
+    .saved_cards {
+
+      h2 {
+        font-family: var(--text-font);
+        color: #2F3640;
+        font-size: 2em;
+        font-weight: bold;
+      }
+    }
+
+
+  }
+
+  .uploaded_jobs_container {
+    display: flex;
+    flex-direction: column;
+
+    // width: 40%;
+    .uploaded_jobs {
+      display: inline;
+      text-align: center;
+      padding: 5px 10%;
+
+      &>* {
+        margin: 0;
+      }
+
+      h1,
+      h2 {
+        font-family: var(--text-font);
+      }
+
+      h1 {
+        font-size: 8em;
+        color: #2F3542;
+      }
+
+      h2 {
+        font-size: 2em;
+        color: #2F3542;
+      }
+    }
+
+    .cards-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+  }
+
+  .recently_added_container {
+    display: flex;
+    flex-direction: row;
+
+    .recently_added_jobs {
+      display: inline;
+      text-align: center;
+      padding: 5px 10%;
+
+      &>* {
+        margin: 0;
+      }
+
+      h1,
+      h2 {
+        font-family: var(--text-font);
+      }
+
+      h1 {
+        font-size: 8em;
+        color: #2F3542;
+      }
+
+      h2 {
+        font-size: 2em;
+        color: #2F3542;
+      }
+    }
+
+    .cards-container {}
+  }
+
+  .saved_cards {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 10%;
+    margin: 1em 0px;
+    // & > * {
+    // }
+
+    .job-card {
+      margin-right: 2em;
+      background-color: #F5F6FA;
+      padding: 5%;
+      border-radius: 5%;
+
+      &>* {
+        margin-bottom: 1em;
+      }
+
+      h2,
+      h3,
+      p,
+      button,
+      a {
+        // font-family: var(--text-font);
+        font-family: var(--header-font);
+
+        margin: 0;
+        display: block;
+      }
+
+      h2 {
+        font-size: 2em;
+        color: #2F3542
+      }
+
+      h3 {
+        color: #747D8C;
+        font-size: 1.6em;
+      }
+
+      p {
+        color: #747D8C;
+        font-size: 1em;
+      }
+
+      a {
+        color: #2F3542;
+        font-size: 1em;
+
+      }
+
+      button {
+        font-size: 1.2em;
+        border: 0;
+        color: white;
+        // background-color: #2ED573;
+        padding: 0.3em 1em;
+      }
+
+      .apply {
+        background-color: #2ED573;
+
+      }
+
+      .edit {
+        background-color: #2F3542;
+
+      }
+
+      .delete {
+        background-color: #FF6348;
+
+
+      }
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .container {
+    grid: minmax(250px, auto) 1fr / 1fr 1fr;
+
+    .saved_job_container {
+      grid-column: 1/2;
+      // grid-row: //;
+    }
+
+    .uploaded_jobs_container {
+      grid-column: 2/-1;
+    }
+
+    .recently_added_container {
+      // grid-row: 1/-1;
+      grid-row: 2;
+      grid-column: 1/-1;
+    }
+  }
+
+}

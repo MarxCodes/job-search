@@ -6,8 +6,11 @@ import { Observable } from 'rxjs';
 export class AddHeaderInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const token = localStorage.getItem('token');
+    // const token = localStorage.get('')
     let jsonReq: HttpRequest<any> = req.clone({
-      setHeaders: { 'Content-Type': 'application/json'}
+      setHeaders: { Authorization : `${token}` },
+
     })
 
     return next.handle(jsonReq);

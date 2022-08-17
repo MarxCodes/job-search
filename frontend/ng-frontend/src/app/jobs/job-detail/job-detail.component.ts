@@ -32,10 +32,24 @@ export class JobDetailComponent implements OnInit {
     // console.log('straight log: ', this.jobService.getJob('619e74a61e4758c26820a09e'))
     this.route.params.subscribe(
       (params: Params) => {
-        this.id = params['id'];
-        this.jobService.getJob(this.id).subscribe(
-          el => this.data = el
+        let id = params['id'];
+
+
+        // this.jobService.findJob(id).subscribe(
+        //   (el: any) => {
+        //     console.log(el)
+        //     this.data = el
+        //   }
+        // )
+        this.jobService.getJob(id).subscribe(
+          el => {
+            console.log(el)
+            this.data = el
+          }
         )
+
+
+
         // .pipe(
         //   tap(console.log),
         //   map(el => {return el[0]}),

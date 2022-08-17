@@ -1,0 +1,252 @@
+.inside-nav-container {
+  background-color: antiquewhite;
+  width: 450px;
+  max-width: 100%;
+  height: 100%;
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 65px 0;
+
+    h1 {
+      font-size: 3em;
+      font-family: var(--header-font);
+      margin: 0 0 40px 0;
+
+    }
+  }
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+
+  main {
+    margin-top: 8vh;
+    max-width: 100%;
+    padding: 50px;
+    // min-
+  }
+
+  aside {
+    // flex: 1;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .page {
+    flex-direction: row;
+
+  }
+
+  main {
+    width: 75%;
+  }
+}
+
+.gradient {
+  height: 500px;
+  width: 500px;
+  border-radius: 1em;
+  background: linear-gradient(180deg, #FFB7B7 0%, #727272 100%), radial-gradient(60.91% 100% at 50% 0%, #FFD1D1 0%, #260000 100%), linear-gradient(238.72deg, #FFDDDD 0%, #720066 100%), linear-gradient(127.43deg, #00FFFF 0%, #FF4444 100%), radial-gradient(100.22% 100% at 70.57% 0%, #FF0000 0%, #00FFE0 100%), linear-gradient(127.43deg, #B7D500 0%, #3300FF 100%);
+  background-blend-mode: screen, overlay, hard-light, color-burn, color-dodge, normal;
+}
+
+.upload-ad {
+  margin-top: 75px;
+  position: relative;
+  height: 150px;
+  background-color: #2F3542;
+  // overflow: hidden;
+  padding: 20px;
+  border-radius: 20px;
+
+  img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 250px;
+    border-radius: 0 0 20px 0;
+  }
+
+  h2,
+  p {
+    width: 70%;
+    color: white;
+  }
+}
+
+
+.recent-job-container {
+  display: flex;
+  justify-content: space-evenly;
+
+  .recent-job {
+    width: 40%;
+    display: inline-block;
+    background-color: white;
+    padding: 20px;
+    border-radius: 25px;
+
+    .title-section {
+      display: grid;
+      // justify-content: space-between;
+      grid-template-columns: 150px auto;
+
+      img {
+        border-radius: 12.5%;
+        height: 100%;
+        width: 100%;
+      }
+
+      .recent-job-titles-container {
+        // float: right;
+        padding-left: 25px;
+
+        h1,
+        h2 {
+          margin: 0;
+          line-height: 1.5;
+        }
+
+        h1 {
+          color: #130f40
+        }
+
+        h2 {
+          color: #30336b;
+        }
+      }
+    }
+
+    .feature-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 2%;
+
+
+      .feature-item {
+        width: 33%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .img-wrap {
+          border-radius: 5px;
+          background: #dff9fb;
+          height: 90px;
+          width: 90px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            height: 40px;
+            width: 40px;
+          }
+        }
+      }
+    }
+
+
+  }
+}
+
+.report-pane {
+  background-color: white;
+  height: 100%;
+  padding-top: 30px;
+
+  h1 {
+    margin: 0;
+  }
+
+  .latest-jobs {
+    display: flex;
+    // background-color: #F2F7FA;
+    // float: left;
+    flex-wrap: wrap;
+
+    .latest-card {
+      padding: 20px 5px;
+      border-radius: 10px;
+      color: #303952;
+      background-color: #ffffff;
+      margin: 10px 0px 0 10px;
+      max-width: 100%;
+      width: calc(50% - 20px);
+      // border-collapse: collapse;
+      // height: calc(--cardWidth * 2);
+      height: 220px;
+      position: relative;
+
+      .latest-bottom-detail {
+        position: absolute;
+        bottom: 30px;
+      }
+
+      h3 {
+        font-family: var(--number-font);
+        font-size: 3em;
+        margin: 0;
+        font-weight: 100;
+        color: #303952;
+      }
+
+      h4,
+      h5 {
+        margin: 0;
+        font-family: var(--text-font);
+        font-weight: 100;
+      }
+
+      h4 {
+        color: #717171;
+      }
+
+      &:first-child {
+        background-color: #8295F2;
+        color: #ffffff;
+
+        h3 {
+          color: #ffffff;
+
+        }
+
+        .progress-bar {
+          background-color: #8FA2FF;
+        }
+      }
+
+      &:last-child {
+        background-color: #EA8685;
+
+        // color:#717171;
+        .progress-bar {
+          background-color: #E66767;
+        }
+      }
+
+      .progress-bar {
+        width: 80%;
+        margin: auto;
+        height: 10px;
+        background-color: #D2FAFF;
+        border-radius: 1em;
+
+        &::after {
+          content: " ";
+          background-color: #63CDDA;
+          width: 60px;
+          height: 10px;
+          position: absolute;
+          border-radius: 1em;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}

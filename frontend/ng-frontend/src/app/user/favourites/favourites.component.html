@@ -1,1 +1,78 @@
-<p>favourites works!</p>
+<!-- <form [formGroup]="form" *ngFor="let item of list"> -->
+<!-- <app-check-item></app-check-item> -->
+<!-- </form> -->
+<!-- <div class="saved_job_table">
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Company</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+    <tr>
+      <td>Job Title</td>
+      <td>Company</td>
+      <td><span class="expiring">Expiring</span></td>
+      <td>Delete</td>
+    </tr>
+    <tr>
+      <td>Job Title</td>
+      <td>Company</td>
+      <td><span class="expired">Expired</span></td>
+      <td>Delete</td>
+    </tr>
+    <tr>
+      <td>Job Title</td>
+      <td>Company</td>
+      <td><span class="declined">Declined</span></td>
+      <td>Delete</td>
+    </tr>
+    <tr>
+      <td>Job Title</td>
+      <td>Company</td>
+      <td><span class="updated">Updated</span></td>
+      <td>Delete</td>
+    </tr>
+  </table>
+</div> -->
+<div class="saved_job_table">
+  <table *ngIf="savedJobs | async as data">
+    <tr>
+      <th>Title</th>
+      <th>Company</th>
+      <th>Location</th>
+      <th>Salary</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+    <tr
+      *ngFor="let item of data"
+      [routerLink]="['/user/saved', item._id, 'detail']"
+    >
+      <td>{{ item.job_title }}</td>
+      <td>{{ item.company_name }}</td>
+      <td>{{ item.city }}</td>
+      <td>{{ item.salary_offered }}</td>
+      <!-- <td>{{ item.job_type }}</td> -->
+      <td><span class="expiring">Expiring</span></td>
+
+      <td class="actions">
+        <button class="delete" (click)="deleteSavedJob($event, item._id)">
+          delete
+          <mat-icon aria-hidden="false" aria-label="Example home icon"
+            >delete</mat-icon
+          >
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="cont" *ngIf="!savedJobs">
+  <!-- <div *ngFor="let item of data"> -->
+  <h1>
+    You currently have no saved jobs, start your search
+    <a routerLink="/home">here</a>
+  </h1>
+  <!-- </div>/ -->
+</div>

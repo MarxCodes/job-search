@@ -1,0 +1,135 @@
+<!-- <p>load-front works!</p>
+<div class="gradient"></div> -->
+<!-- <app-mi-nav-container [hasBackdrop]="true">
+  <app-mi-nav-drawer
+    #insideDrawer
+    [opened]="false"
+    [position]="insidePosition"
+    [mode]="insideMode"
+  >
+    <div class="inside-nav-container">
+      <div class="form-container" *ngIf="register">
+        <h1>Register</h1>
+        <app-register-form></app-register-form>
+        <h2>
+          If you've already registerd
+          <a (click)="changeTemplate()">Sign In</a>
+        </h2>
+      </div>
+      <div class="form-container" *ngIf="!register">
+        <h1>Sign In</h1>
+        <app-sign-up-form></app-sign-up-form>
+      </div>
+    </div>
+  </app-mi-nav-drawer>
+  <app-mi-nav-content> -->
+<div class="page">
+  <main>
+    <!-- <button (click)="insideDrawer.open()">insideDrawer Openey</button>
+        <button (click)="insideDrawer.close()">insideDrawer Closey</button> -->
+    <app-search-form></app-search-form>
+
+    <div class="upload-ad">
+      <img src="../../../assets/CUTOUT-flat.png" alt="" />
+      <h2>Employer? Post your own job advery</h2>
+      <p>
+        Upload exciting employment opportunities and share to ensure quick
+        responses and keep growing enterprise.
+      </p>
+    </div>
+
+    <h2>Recently posted jobs in your area</h2>
+    <div class="recent-job-container">
+      <div class="recent-job">
+        <div class="title-section">
+          <!-- <img src="" alt="" /> -->
+          <img src="assets/icons/jobAD/cazoo.webp" alt="" class="recent-img" />
+          <div class="recent-job-titles-container">
+            <h1>Cazoo</h1>
+            <h2>Systems Architect</h2>
+          </div>
+        </div>
+
+        <h3>Features</h3>
+        <div class="feature-wrapper">
+          <div class="feature-item" *ngFor="let item of freatureItem1">
+            <div class="img-wrap">
+              <img [src]="item.img" [alt]="item.title" />
+            </div>
+            <p>{{ item.title }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="recent-job">
+        <div class="title-section">
+          <img
+            src="assets/icons/jobAD/everlast.webp"
+            alt=""
+            height="150px"
+            width="150px"
+          />
+          <div class="recent-job-titles-container">
+            <h1>Everlast</h1>
+            <h2>Graphic Designer</h2>
+          </div>
+        </div>
+
+        <h3>Features</h3>
+        <div class="feature-wrapper">
+          <div class="feature-item" *ngFor="let item of freatureItem2">
+            <div class="img-wrap">
+              <img [src]="item.img" [alt]="item.title" />
+            </div>
+            <p>{{ item.title }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside>
+    <div class="report-pane">
+      <h1>Report</h1>
+      <div class="latest-jobs">
+        <div class="latest-card">
+          <h3>48</h3>
+          <h4>London Jobs</h4>
+          <div class="latest-bottom-detail">
+            <h4>50% applied</h4>
+            <div class="progress-bar"></div>
+          </div>
+        </div>
+        <div class="latest-card">
+          <h3>48</h3>
+          <h4>London Jobs</h4>
+          <div class="latest-bottom-detail">
+            <h4>50% applied</h4>
+            <div class="progress-bar"></div>
+          </div>
+        </div>
+        <div class="latest-card">
+          <h3>48</h3>
+          <h4>London Jobs</h4>
+          <div class="latest-bottom-detail">
+            <h4>50% applied</h4>
+            <div class="progress-bar"></div>
+          </div>
+        </div>
+        <div class="latest-card">
+          <h3>48</h3>
+          <h4>London Jobs</h4>
+          <div class="latest-bottom-detail">
+            <h4>50% applied</h4>
+            <div class="progress-bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="new-job-container">
+        <div class="new-job-card"></div>
+      </div>
+    </div>
+  </aside>
+</div>
+<!-- </app-mi-nav-content>
+</app-mi-nav-container> -->

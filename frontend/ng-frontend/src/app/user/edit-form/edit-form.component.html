@@ -1,0 +1,26 @@
+<!-- <div class="form-container">
+  <form novalidate #editForm="ngForm">
+    <div class="form-row">
+      <label for="Job_title">
+        Job Title
+      </label>
+      <div class="input-wrapper">
+        <input type="text"
+               id="job_titleID"
+               class="form_control"
+               [(ngModel)]="job.job_title"
+               #pro>
+      </div>
+    </div>
+  </form>
+</div> -->
+<form [formGroup]="editForm">
+  <input type="text" formControlName="firstName" />
+  <input type="text" formControlName="lastName" />
+  <input type="text" formControlName="Gender" />
+  <input type="text" formControlName="spotlightUrl" />
+  <button class="submit" type="submit" [disabled]="!editForm.valid">
+    Save
+  </button>
+  <button class="discard" type="button">Discard</button>
+</form>

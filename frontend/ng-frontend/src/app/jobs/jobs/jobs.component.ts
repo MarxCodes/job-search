@@ -10,7 +10,7 @@ import { first, map, take } from 'rxjs/operators';
 })
 export class JobsComponent implements OnInit {
   expression = false;
-  list = this.jobService.job$;
+  // list = this.jobService.job$;
   // id = this.list.pipe(
   //   map(i => {
   //     console.log(typeof i);
@@ -23,20 +23,20 @@ export class JobsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  toggleJobList() {
-    this.expression = !this.expression;
-    this.list.pipe(
-      map(i => {
-        return i.map(e => e)[0]
-      })
-      ).subscribe(i => {
-        let { _id } = i;
-        console.log(_id)
-        // console.log(_id);
-        this.router.navigate([`${_id}`], {relativeTo: this.route})
+  // toggleJobList() {
+  //   this.expression = !this.expression;
+  //   this.list.pipe(
+  //     map(i => {
+  //       return i.map(e => e)[0]
+  //     })
+  //     ).subscribe(i => {
+  //       let { _id } = i;
+  //       console.log(_id)
+  //       // console.log(_id);
+  //       this.router.navigate([`${_id}`], {relativeTo: this.route})
 
-    })
-    // let {_id} =  obj ;
-    // console.log(_id);
-  }
+  //   })
+  //   // let {_id} =  obj ;
+  //   // console.log(_id);
+  // }
 }

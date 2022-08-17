@@ -2,12 +2,15 @@
 }
 
 nav {
-  background-color: var(--header-colour);
+  // background-color: var(--header-colour);
+  // background-color: #F5F6FA;
   display: flex;
   padding: 0 4%;
+  height: 4em;
+  align-items: center;
   h1{
     font-family: var(--header-font);
-    color: white;
+    color: #57606F;
     // margin: 0;
     font-size: 1.5em;
   }
@@ -17,7 +20,11 @@ nav {
 
   ul {
     list-style: none;
-    display: inline-block;
+    display: flex;
+
+    li{
+      margin-left: 2em;
+    }
   }
 }
 

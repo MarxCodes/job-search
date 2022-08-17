@@ -1,13 +1,29 @@
-<div class="container">
-  <div class="form-container" *ngIf="register">
-    <h1>Register</h1>
-    <app-register-form></app-register-form>
-    <h2>
-      If you've already registerd <a (click)="changeTemplate()">Sign In</a>
-    </h2>
-  </div>
-  <div class="form-container" *ngIf="!register">
-    <h1>Sign In</h1>
-    <app-sign-up-form></app-sign-up-form>
+<div class="wrapper">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    id="blob"
+    viewBox="0 0 900 600"
+    version="1.1"
+  >
+    <g transform="translate(412.73290875356207 297.33379176861297)">
+      <path
+        d="M280 -195C353.2 -131.6 395.9 -15.8 360.5 59.3C325 134.3 211.3 168.5 110.7 209.1C10 249.6 -77.7 296.4 -139.9 273.1C-202.2 249.8 -239 156.4 -267.9 54.2C-296.8 -48 -317.7 -159 -271.7 -216.2C-225.7 -273.3 -112.8 -276.7 -4.7 -272.9C103.5 -269.2 206.9 -258.4 280 -195"
+        fill="#FFF0F0"
+      />
+    </g>
+  </svg>
+  <div class="container">
+    <div class="form-container" *ngIf="register">
+      <h1>Register</h1>
+      <app-register-form></app-register-form>
+      <h2>
+        If you've already registerd <a (click)="changeTemplate()">Sign In</a>
+      </h2>
+    </div>
+    <div class="form-container" *ngIf="!register">
+      <h1>Sign In</h1>
+      <app-sign-up-form></app-sign-up-form>
+    </div>
   </div>
 </div>

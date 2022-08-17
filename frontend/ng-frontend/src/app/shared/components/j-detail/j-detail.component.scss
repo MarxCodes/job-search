@@ -1,0 +1,14 @@
+.detail-container {
+  // padding: 0 5%;
+
+  .details {
+    display: inline-block;
+    width: 90%;
+    h2 {
+      float: left;
+    }
+    h3 {
+      float: right;
+    }
+  }
+}

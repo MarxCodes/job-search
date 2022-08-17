@@ -1,0 +1,24 @@
+<!-- <ng-content select="drawer"></ng-content>
+<ng-content select="drawer-content"></ng-content> -->
+
+<!-- <h1>Showing inside the ng-content</h1> -->
+<ng-content select="app-nav-drawer"> </ng-content>
+<app-nav-drawer>
+  <ul>
+    <li>TOOLS</li>
+    <li>FOOLS</li>
+    <li>CRUELS</li>
+    <li>STOOLSS</li>
+  </ul>
+</app-nav-drawer>
+<app-nav-main-content>
+  <!-- <router-outlet></router-outlet> -->
+</app-nav-main-content>
+<ng-content select="app-nav-main-content"> </ng-content>
+<app-nav-main-content *ngIf="!_content">
+  <router-outlet></router-outlet>
+</app-nav-main-content>
+
+<app-nav-main-content *ngIf="!_content">
+  <ng-content></ng-content>
+</app-nav-main-content>

@@ -1,0 +1,8 @@
+<div *ngIf="myJobData$ | async as iterableArr">
+  <app-j-item
+    *ngFor="let data of iterableArr; let i = index"
+    [data]="data"
+    [index]="i"
+  >
+  </app-j-item>
+</div>

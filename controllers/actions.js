@@ -21,6 +21,7 @@ const { ObjectId } = require('mongodb');
   for (i of favourites) {
     // arr.push(`ObjectId(${i})`);
     // arr.push(ObjectId(i));
+    if(i )
     arr.push(i);
   }
   // const job = await Job.find(arr)
@@ -35,7 +36,9 @@ const { ObjectId } = require('mongodb');
 };
 
 const addToFavourites = async (req,res) => {
-  const { user: { userId }, params: { id: jobId} } = req;
+  // const { user: { userId }, params: { id: jobId} } = req;
+  const { user: { userId }, body: { id: jobId} } = req;
+
   console.log(jobId);
   const user = await User.findByIdAndUpdate({
     _id: userId
@@ -50,7 +53,28 @@ const addToFavourites = async (req,res) => {
   res.status(StatusCodes.OK).json({user});
 };
 
+const deleteFavourite = async (req,res) => {
+  const { user: { userId}, body: { id: jobId } } = req;
+
+  const user = await User.findByIdAndUpdate({
+    _id: userId
+  }, {
+    $pull: { favourites: jobId}
+  });
+
+  if(!user) {
+    throw new NotFoundError('no user found');
+  }
+
+  if(!jobId) {
+    throw new NotFoundError('no job found');
+  };
+
+  res.status(StatusCodes.OK).json({user});
+}
+
 module.exports = {
   getFavourites,
-  addToFavourites
+  addToFavourites,
+  deleteFavourite
 };

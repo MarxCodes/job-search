@@ -1,10 +1,10 @@
-<button (click)="toggleJobList()">ToggleJobData</button>
+<!-- <button (click)="toggleJobList()">ToggleJobData</button> -->
 <h1>Job Loading..</h1>
+
 <div class="container">
   <div class="left">
-    <div *ngIf="expression">
-      <app-job-list></app-job-list>
-    </div>
+    <app-job-list></app-job-list>
+    <div *ngIf="expression"></div>
   </div>
   <div class="right">
     <router-outlet></router-outlet>

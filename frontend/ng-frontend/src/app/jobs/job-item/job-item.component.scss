@@ -16,6 +16,7 @@
 }
 
 .router-link-active {
-  border-left: solid 4px #38ADA9;
+  border-left: solid 10px #38ADA9;
+  transition: all 200ms ease-out;
   // background-color: blue;
 }

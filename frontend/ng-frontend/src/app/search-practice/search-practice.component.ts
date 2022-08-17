@@ -7,6 +7,8 @@ import {
   FormGroup,
   Validators
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { JobService } from '../services/job.service';
 @Component({
   selector: 'app-search-practice',
   templateUrl: './search-practice.component.html',
@@ -142,6 +144,7 @@ export class SearchPracticeComponent implements OnInit {
 });
 isOpen = true;
 
+
 @HostListener('focusin', ['$event']) focusInnit() {
     console.log('fired');
     if (this.isOpen !== true) {
@@ -149,18 +152,37 @@ isOpen = true;
     }
     return;
   }
-toggle() {
-  this.isOpen = !this.isOpen;
-  console.log(this.isOpen);
-}
-  constructor(private fb: FormBuilder) { }
+
+
+  constructor(private fb: FormBuilder,
+              private jobService: JobService,
+              private router: Router) { }
 
   ngOnInit() {
 
   }
+
+  toggle() {
+    this.isOpen = !this.isOpen;
+  }
   save() {
     console.log(this.searchForm);
-    console.log('saved', +JSON.stringify(this.searchForm.value));
+    let jobTitle = this.searchForm.value.jobTitle;
+    let location = this.searchForm.value.location;
+
+    // if(jobTitle || location === null) {
+    //   return
+    // }
+
+    this.toggle();
+    // this.jobService.getJobs({job_title: jobTitle,city: location}).subscribe(el => {
+    //   console.log(el);
+    //   this.router.navigate(['/jobs']);
+    // })
+        this.jobService.getJobData({job_title: jobTitle,city: location}).subscribe(el => {
+      console.log(el);
+      this.router.navigate(['/jobs']);
+    })
   }
 
   openOptions() {

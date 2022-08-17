@@ -1,0 +1,17 @@
+.toggle-options {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  appearance: none;
+  font-family: var(--text-font);
+  color: white;
+  // font-family: var(--header-font);
+
+  background-color: #130f40;
+  // background-color: white;
+  border-radius: 30px;
+  border: none;
+  height: 55px;
+  width: 120px;
+  // width: 4em;
+}

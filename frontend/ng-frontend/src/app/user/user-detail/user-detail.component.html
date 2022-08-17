@@ -1,1 +1,85 @@
-<p>user-detail works!</p>
+<div class="container">
+  <form (ngSubmit)="(save)" [formGroup]="jobForm">
+    <div class="form-group">
+      <div class="input-container">
+        <input type="text" class="form-control" formControlName="job_title" />
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="company_name"
+        />
+      </div>
+      <div class="input-container">
+        <input type="text" class="form-control" formControlName="city" />
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="salaryOffered"
+        />
+      </div>
+      <div class="input-container">
+        <input type="text" class="form-control" formControlName="job_type" />
+      </div>
+      <button class="submit" type="submit" [disabled]="!jobForm.valid">
+        Save
+      </button>
+      <button class="discard" type="button">Discard</button>
+    </div>
+  </form>
+</div>
+
+<!-- <div class="container">
+  <form novalidate (ngSubmit)="save()" [formGroup]="registerForm">
+    <div class="form-group">
+      <div class="input-container">
+        <input
+          type="text"
+          class="form-control"
+          id="emailID"
+          placeholder="Email"
+          formControlName="email"
+        />
+
+      </div>
+      <span class="invalid-feedback">
+        <span *ngIf="registerForm.get('email')?.errors?.required">
+          Enter Email
+        </span>
+        <span *ngIf="registerForm.get('email')?.errors?.email">
+          Not Emaily
+        </span>
+      </span>
+
+      <div formGroupName="passwordGroup" class="password-group">
+        <div class="input-container">
+          <input
+            class="form-control"
+            id="password"
+            type="text"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </div>
+
+        <div class="input-container">
+          <input
+            class="form-control"
+            id="confirmPassword"
+            type="text"
+            placeholder="Confirm Password"
+            formControlName="confirmPassword"
+          />
+
+        </div>
+      </div>
+      <button type="submit">
+
+        Register
+      </button>
+    </div>
+  </form>
+</div> -->

@@ -1,0 +1,40 @@
+:host {}
+
+.job-item-container {
+  box-sizing: border-box;
+  // background-color: #F1F2F6;
+  padding: 5%;
+  margin-bottom: 2px;
+  cursor: pointer;
+
+  h1 {
+    // font-size: 1.5em;
+    font-size: 1.2em;
+    font-weight: 300;
+    margin: 0;
+    color: #F1F2F6;
+    font-family: var(--text-font);
+    float: left;
+    width: 80%;
+  }
+
+  h2 {
+    font-size: 1em;
+    font-weight: 300;
+    margin: 0;
+    color: #F1F2F6;
+    font-family: var(--text-font);
+    // float: left;
+    width: 80%;
+
+  }
+}
+
+.router-link-active {
+  // border-left: solid 10px #38ADA9;
+
+  border-radius: 1em;
+  background-color: #B2A0F3;
+  transition: all 200ms ease-out;
+  // background-color: blue;
+}

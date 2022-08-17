@@ -1,0 +1,54 @@
+<form #vBase novalidate (ngSubmit)="save()" [formGroup]="searchForm">
+  <div class="search-container">
+    <input
+      class="form-control effect-1"
+      id="jobTitle"
+      type="search"
+      placeholder="Job Title..."
+      formControlName="jobTitle"
+    />
+    <input
+      class="form-control"
+      id="location"
+      type="search"
+      placeholder="Location"
+      formControlName="location"
+    />
+    <!-- <div class="search-bar">
+      <div class="vl"></div>
+
+    </div> -->
+    <div class="buttons-container">
+      <app-search-option-button
+        [appSearchPopUp]="vRef"
+        [label]="vBase"
+      ></app-search-option-button>
+      <!-- <div class="toggle-options">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        (click)="openOptions()"
+        >expand_more</mat-icon
+      >
+    </div> -->
+      <!-- <span class="focus-border"></span> -->
+      <div class="search-btn-container">
+        <button>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            (click)="save()"
+            >search</mat-icon
+          >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<ng-template #vRef>
+  <!-- <app-pop-up> -->
+  <app-search-options></app-search-options>
+  <!-- </app-pop-up> -->
+</ng-template>

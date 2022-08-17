@@ -1,5 +1,5 @@
 <!-- <mat-form-field class="example-form-field" appearance="fill"> </mat-form-field> -->
-<nav></nav>
+<!-- <nav></nav>
 
 <form
   [@panelState]="isOpen ? 'open' : 'close'"
@@ -24,10 +24,7 @@
     formControlName="location"
     [@reducer]="isOpen ? 'open' : 'close'"
   />
-  <mat-icon
-    aria-hidden="false"
-    aria-label="Example home icon"
-    (click)="toggle()"
+  <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="save()"
     >search</mat-icon
   >
   <mat-icon
@@ -43,12 +40,10 @@
     </label>
   </div>
   <div class="input-wrapper">
-    <!-- <span class="invalid-feedback">
-      {{ emailMessage }}
-    </span> -->
   </div>
-</form>
-<app-search-panel-options
-  *ngIf="toggleOpen"
-  @toggleOpen
-></app-search-panel-options>
+</form> -->
+<!-- <app-search-options *ngIf="toggleOpen" @toggleOpen></app-search-options> -->
+
+<!-- <span class="invalid-feedback">
+  {{ emailMessage }}
+</span> -->

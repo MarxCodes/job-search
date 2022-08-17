@@ -1,0 +1,98 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5% 3%;
+
+
+  // background-color: #0a3d62;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    padding: .5em 1em;
+    color: #ffffff;
+    background-color: #B2A0F3;
+    font-size: 1.5em;
+    font-family: var(--text-font);
+    border-radius: 1em;
+    border: none;
+  }
+
+  .input-container{
+    width: 100%;
+
+    .form-control {
+      color: white;
+      height: 1.5em;
+      padding: 0.5em;
+      width: 350px;
+      border:none;
+      border-bottom: 1px solid #636E72;
+      padding: 5px 10px;
+      outline: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: 0 0 2em 0;
+      background: transparent;
+      font-size: 1.5em;
+      font-family: var(--text-font);
+
+      &::placeholder {
+        color: #636E72;
+      }
+
+      &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #636E72;
+      }
+
+      &::-ms-input-placeholder { /* Microsoft Edge */
+        color: #636E72;
+      }
+
+      &:-webkit-autofill::first-line,
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        color: white;
+        height: 1.5em;
+        padding: 0.5em;
+        width: 350px;
+        border-bottom: 4px solid #636E72;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0 0 2em 0;
+        // background: transparent;
+        font-size: 1.5em!important;
+        font-family: var(--text-font)!important;
+        -webkit-text-fill-color: #636E72;
+        box-shadow: 0 0 0px 1000px #0a3d62 inset;
+        -webkit-box-shadow: 0 0 0px 1000px #0a3d62 inset;
+      }
+    }
+
+
+  }
+  .invalid-feedback {
+
+  }
+  .is-invalid {
+    border: 1px solid red;
+  }
+
+}
+
+@media (min-width: 1001px) {
+  .container {
+    // height: 800px;
+    // width: 660px;
+  }
+}

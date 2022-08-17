@@ -10,6 +10,7 @@ import { first, map, take } from 'rxjs/operators';
 export class JobListComponent implements OnInit {
   // $
   // list : [] = [];
+  myJobData$ = this.jobService.jobData;
   // list = this.jobService.getJobs();
   list = this.jobService.job$;
 
