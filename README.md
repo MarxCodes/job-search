@@ -38,7 +38,7 @@ Includes personal portal where users can save favourite jobs and prospective emp
   <li>Express</li>
   <li>JWT Authentication</li>
 </ul>
-<h2>To-Do List<h2>
+<h2>To-Do List</h2>
 <ul>
   <li>add API Robust Tests & improved error handling</li>
   <li>Lazy Loading</li>
